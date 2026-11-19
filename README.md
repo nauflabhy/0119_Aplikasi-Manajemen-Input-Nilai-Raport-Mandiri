@@ -31,6 +31,6 @@ Proyek ini dikerjakan secara bertahap selama **8 Minggu** dengan target *milesto
 
 ### Fase 2: Perancangan Sistem & Database
 - [ ] **Minggu 10: Perancangan Diagram & UI/UX**
-- [ ] Pembuatan Use Case Diagram, Activity Diagram, ERD, RAT, Flow diagram
-- [ ] Perancangan struktur tabel database MySQL
-- [ ] Pembuatan wireframe alur aplikasi multi-halaman
+  -  Pembuatan Use Case Diagram, Activity Diagram, ERD, RAT, Flow diagram
+  -  Perancangan struktur tabel database MySQL
+  -  Pembuatan wireframe alur aplikasi multi-halaman
