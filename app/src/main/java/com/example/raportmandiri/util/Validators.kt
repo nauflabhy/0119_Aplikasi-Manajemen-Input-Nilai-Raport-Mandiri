@@ -1,5 +1,8 @@
 package com.example.raportmandiri.util
 
+import android.util.Patterns
+import com.example.raportmandiri.data.repository.AccountType
+
 object Validators {
 
     fun email(value: String): String? = when {
