@@ -1,5 +1,17 @@
 package com.example.raportmandiri.ui.auth
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.raportmandiri.data.repository.AccountType
+import com.example.raportmandiri.data.repository.AuthRepository
+import com.example.raportmandiri.data.repository.FakeAuthRepository
+import com.example.raportmandiri.util.Validators
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+
 data class RegisterUiState(
     val accountType: AccountType = AccountType.SISWA,
     val identity: String = "",
