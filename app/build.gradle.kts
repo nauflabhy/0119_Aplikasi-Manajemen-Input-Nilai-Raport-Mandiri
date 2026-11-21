@@ -45,6 +45,19 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
+    // --- TAMBAH: UI Login/Register ---
+    implementation(libs.androidx.navigation.compose)               // Navigation Compose
+    implementation(libs.androidx.lifecycle.viewmodel.compose)      // viewModel() di Compose
+    implementation(libs.androidx.lifecycle.runtime.compose)        // collectAsStateWithLifecycle
+    implementation(libs.androidx.material.icons.extended)          // ikon Visibility / VisibilityOff
+
+    // --- TAMBAH: dipakai mulai Minggu 3 (boleh ditambahkan sekarang) ---
+    implementation(libs.androidx.datastore.preferences)            // simpan token
+    implementation(libs.retrofit)                                  // REST API client
+    implementation(libs.retrofit.converter.gson)                   // parsing JSON
+    implementation(libs.okhttp.logging.interceptor)                // log request (debug)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
