@@ -78,3 +78,66 @@ fun AppTextField(
         shape = RoundedCornerShape(12.dp)
     )
 }
+
+@Composable
+fun PasswordTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    modifier: Modifier = Modifier,
+    error: String? = null,
+    hint: String? = null,
+    imeAction: ImeAction = ImeAction.Next,
+    onDone: (() -> Unit)? = null,
+    enabled: Boolean = true
+) {
+    var visible by rememberSaveable { mutableStateOf(false) }
+    AppTextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = label,
+        modifier = modifier,
+        error = error,
+        hint = hint,
+        keyboardType = KeyboardType.Password,
+        imeAction = imeAction,
+        onDone = onDone,
+        enabled = enabled,
+        visualTransformation = if (visible) VisualTransformation.None else PasswordVisualTransformation(),
+        trailingIcon = {
+            IconButton(onClick = { visible = !visible }) {
+                Icon(
+                    imageVector = if (visible) Icons.Filled.VisibilityOff else Icons.Filled.Visibility,
+                    contentDescription = if (visible) "Sembunyikan password" else "Tampilkan password"
+                )
+            }
+        }
+    )
+}
+
+@Composable
+fun PrimaryButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    isLoading: Boolean = false
+) {
+    Button(
+        onClick = onClick,
+        enabled = !isLoading,
+        modifier = modifier
+            .fillMaxWidth()
+            .height(52.dp),
+        shape = RoundedCornerShape(12.dp)
+    ) {
+        if (isLoading) {
+            CircularProgressIndicator(
+                modifier = Modifier.size(22.dp),
+                strokeWidth = 2.5.dp,
+                color = MaterialTheme.colorScheme.onPrimary
+            )
+        } else {
+            Text(text, style = MaterialTheme.typography.labelLarge)
+        }
+    }
+}
