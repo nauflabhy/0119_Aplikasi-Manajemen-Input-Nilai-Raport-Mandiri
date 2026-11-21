@@ -46,3 +46,35 @@ fun FormSheet(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
         ) { content() }
     }
 }
+
+@Composable
+fun AppTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    modifier: Modifier = Modifier,
+    error: String? = null,
+    hint: String? = null,
+    keyboardType: KeyboardType = KeyboardType.Text,
+    imeAction: ImeAction = ImeAction.Next,
+    onDone: (() -> Unit)? = null,
+    enabled: Boolean = true,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    trailingIcon: @Composable (() -> Unit)? = null
+) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = { Text(label) },
+        modifier = modifier.fillMaxWidth(),
+        singleLine = true,
+        enabled = enabled,
+        isError = error != null,
+        supportingText = (error ?: hint)?.let { msg -> { Text(msg) } },
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
+        keyboardActions = KeyboardActions(onDone = { onDone?.invoke() }),
+        visualTransformation = visualTransformation,
+        trailingIcon = trailingIcon,
+        shape = RoundedCornerShape(12.dp)
+    )
+}
